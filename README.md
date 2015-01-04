@@ -1,7 +1,7 @@
 vstreamers-grab
 =============
 
-More information about the archiving project can be found on the ArchiveTeam wiki: [vStreamers.com](http://archiveteam.org/index.php?title=vStreamers)
+More information about the archiving project can be found on the ArchiveTeam wiki: [vStreamers.com](http://archiveteam.org/index.php?title=Vstreamers)
 
 Setup instructions
 =========================
@@ -142,4 +142,4 @@ Are you a developer? Help write code for us! Look at our [developer documentatio
 
 ### Other problems
 
-Have an issue not listed here? Join us on IRC and ask! We can be found at irc.efnet.org #.
+Have an issue not listed here? Join us on IRC and ask! We can be found at irc.efnet.org #destreamers.
