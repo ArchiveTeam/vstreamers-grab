@@ -56,9 +56,9 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
         addedtolist[newurl] = true
       end
     end
-    if string.gmatch(url, "vstreamers%.com/e/[0-9]+") then
+    if string.match(url, "vstreamers%.com/e/[0-9]+") then
       html = read_file(file)
-      for url in string.match(html, 'src="%.%./get_vid/'..item_value..'_[^"]+" type="video/mp4"') do
+      for url in string.gmatch(html, 'src="%.%./get_vid/'..item_value..'_[^"]+" type="video/mp4"') do
         if downloaded[url] ~= true and addedtolist[url] ~= true then
           table.insert(urls, { url=url })
           addedtolist[url] = true
