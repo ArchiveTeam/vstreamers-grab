@@ -198,7 +198,6 @@ class WgetArgs(object):
         
         if item_type == 'video':
             wget_args.append('http://vstreamers.com/v/{0}'.format(item_value))
-            wget_args.append('http://vstreamers.com/e/{0}'.format(item_value))
         else:
             raise Exception('Unknown item')
         
