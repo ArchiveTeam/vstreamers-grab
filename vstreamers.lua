@@ -31,7 +31,7 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
   end
   
   if item_type == "video" and (downloaded[url] ~= true and addedtolist[url] ~= true) then
-    if string.match(url, "/"..item_value.."[^0-9]") then
+    if (string.match(url, "/"..item_value) and not string.match(url, "/"..item_value.."[0-9]+") then
       return verdict
     elseif html == 0 then
       return verdict
