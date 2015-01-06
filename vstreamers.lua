@@ -9,6 +9,17 @@ local item_value = os.getenv('item_value')
 local downloaded = {}
 local addedtolist = {}
 
+read_file = function(file)
+  if file then
+    local f = assert(io.open(file))
+    local data = f:read("*all")
+    f:close()
+    return data
+  else
+    return ""
+  end
+end
+
 wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
   local url = urlpos["url"]["url"]
   local html = urlpos["link_expect_html"]
@@ -43,6 +54,15 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
         table.insert(urls, { url=newurl,
                              post_data="page=1&u_id="..item_value.."&ch_cm_left=false&type=v" })
         addedtolist[newurl] = true
+      end
+    end
+    if string.match(url, "vstreamers%.com/e/[0-9]+") then
+      html = read_file(file)
+      for url in string.match(html, 'src="%.%./get_vid/'..item_value..'_[^"]+" type="video/mp4"') do
+        if downloaded[url] ~= true and addedtolist[url] ~= true then
+          table.insert(urls, { url=url })
+          addedtolist[url] = true
+        end
       end
     end
   end
